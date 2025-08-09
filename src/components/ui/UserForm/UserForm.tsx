@@ -1,5 +1,5 @@
 import { useActionState, type FC } from "react";
-import { useThemeContextProvider } from '../../service/ThemeProvider';
+import { useThemeContextProvider } from "../../service/ThemeProvider";
 
 type HandleFormData = {
   firstName: string;
@@ -26,9 +26,9 @@ export const UserForm: FC = () => {
     salary: 0,
   });
 
+  const { theme, toggleTheme } = useThemeContextProvider();
 
-  const {theme, toggleTheme} = useThemeContextProvider()
-
+  console.log('render', UserForm.name);
   return (
     <>
       <form
@@ -71,9 +71,12 @@ export const UserForm: FC = () => {
         <pre>{JSON.stringify(formData)}</pre>
       </form>
 
-
-
-      <button onClick={toggleTheme}>Toggle Theme</button>
+      <button
+        className="p-2 rounded-lg bg-neutral-700 self-baseline cursor-pointer"
+        onClick={toggleTheme}
+      >
+        Toggle Theme {theme}
+      </button>
     </>
   );
 };
