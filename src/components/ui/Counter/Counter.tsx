@@ -1,21 +1,12 @@
 import type { FC } from "react";
 import { useCounterStore } from "../../../store/counter.store";
-import { mapRender } from "../../../utils/map-render";
 
 export const Counter: FC = () => {
   const { bears, increasePopulation, removeAllBears } = useCounterStore();
 
   console.log("render", Counter.name);
 
-  const elems = mapRender([1, 2], {
-    component: "p",
-    keyGenerator(_, index) {
-      return `p-${index}`;
-    },
-    transform(item, index) {
-      return `p-${index}: ${item}`;
-    },
-  });
+ 
 
   return (
     <>
